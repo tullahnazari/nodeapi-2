@@ -6,15 +6,22 @@ const mysql = require('mysql')
 
 app.use(morgan('short'))
 
+//connection fun
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'wahdat08',
+    database: 'nametesting'
+})
 app.get('/user/:id', (req, res) => {
     console.log("fetching user with id: " + req.params.id)
 
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'wahdat08',
-        database: 'nametesting'
-    })
+    // const connection = mysql.createConnection({
+    //     host: 'localhost',
+    //     user: 'root',
+    //     password: 'wahdat08',
+    //     database: 'nametesting'
+    // })
 
     const userId = req.params.id
     const queryString = "SELECT * FROM users WHERE id = ?"
@@ -40,13 +47,19 @@ console.log("Responding to root route")
 res.send("I AM ALIVE!!!!")
 })
 
-app.get("/users", (req, res) => {
-    var user1 = {firstName: "Stephen", lastName: "Curry"}
-    const user2 = {firstName: "Kevin", lastName: "Durant"}
-    res.json([user1, user2])
 
-    }
-    )
+
+app.get("/users", (req, res) => {
+    connection.query("SELECT * FROM users", (err, rows, fields) => {
+    
+    res.json([rows])
+    })
+})
+
+    
+
+
+
 
 
 
