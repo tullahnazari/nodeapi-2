@@ -27,8 +27,8 @@ router.get("/", (req, res) => {
 
 
 
-
+const PORT = process.env.PORT || 3003
 //localhost:3003
-app.listen(3003, () => {
-    console.log("Server is up and listening on 3003...")
+app.listen(PORT, () => {
+    console.log("Server is up and listening on: " + PORT)
 })
