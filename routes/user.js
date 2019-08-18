@@ -13,9 +13,15 @@ router.get('/messages', (req, res) => {
 })
 
 router.get("/users", (req, res) => {
-    getConnection().query("SELECT * FROM users", (err, rows, fields) => {
-    
-    res.json([rows])
+    const connection = getConnection()
+    const queryString = "SELECT * FROM users"
+    connection.query(queryString, (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to query for users: " + err)
+            res.sendStatus(500)
+            return
+        }
+        res.json(rows)
     })
 })
 
