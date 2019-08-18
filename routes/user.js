@@ -51,7 +51,7 @@ const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'us-cdbr-iron-east-02.cleardb.net',
     user: 'b4849aee8bc263',
-    password: '94a6edd6 ',
+    password: '94a6edd6',
     database: 'heroku_b8eb85b388c76a5'
 })
 
