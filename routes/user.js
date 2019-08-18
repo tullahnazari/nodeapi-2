@@ -47,6 +47,7 @@ router.get('/user/:id', (req, res) => {
     //res.end()
 })
 //creating a pool for db connection, so users can call it multiple times
+//adding heroku cleardb instance credentials
 const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'us-cdbr-iron-east-02.cleardb.net',
