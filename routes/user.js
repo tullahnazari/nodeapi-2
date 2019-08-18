@@ -43,10 +43,10 @@ router.get('/user/:id', (req, res) => {
 //creating a pool for db connection, so users can call it multiple times
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: 'wahdat08',
-    database: 'nametesting'
+    host: 'us-cdbr-iron-east-02.cleardb.net',
+    user: 'b4849aee8bc263',
+    password: '94a6edd6 ',
+    database: 'heroku_b8eb85b388c76a5'
 })
 
 function getConnection() {
